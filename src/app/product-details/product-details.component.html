@@ -1,0 +1,35 @@
+<div *ngIf="product" class="product-details">
+
+    <div class="product-image-container">
+        <img [src]="product?.images[0]" alt="{{ product?.title }}" class="product-image">
+        <div class="gallery-thumbnails">
+            <img *ngFor="let img of product?.images" [src]="img" class="thumbnail">
+        </div>
+    </div>
+  
+    <div class="product-info">
+        <h1 class="product-title">{{ product?.title }}</h1>
+        <p class="product-description">{{ product?.description }}</p>
+  
+        <div class="product-meta">
+            <span class="meta"><strong>Brand:</strong> {{ product?.brand }}</span>
+            <span class="meta"><strong>Category:</strong> {{ product?.category }}</span>
+            <span class="meta"><strong>Rating:</strong> ⭐ {{ product?.rating }}</span>
+        </div>
+  
+        <div class="price-box">
+            <span >{{ product?.price }}</span>
+        </div>
+  
+        <div class="actions">
+            <button class="btn btn-buy" (click)="addToCart()">🛒 Add to Cart</button>
+            <a routerLink="/" class="btn btn-back">🔙 Back</a>
+        </div>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="!product" class="loading">
+      <p>Loading product details...</p>
+  </div>
+  

@@ -1,0 +1,19 @@
+cd "/media/dell/Data/iti/Angular/Day5 (2)/Day5/product_app"
+npm install
+npm run build -- --configuration production
+
+
+
+
+
+
+
+
+
+
+
+
+# from project root
+docker build -t product-app:prod .
+docker run -d -p 8080:80 --name product-app product-app:prod
+# open http://localhost:8080

@@ -1,0 +1,2 @@
+cd "/media/dell/Data/iti/Angular/Day5 (2)/Day5/product_app" && echo '--- checking listed files and folders ---' && ls -la Dockerfile README_PRODUCTION.md nginx.conf .github/workflows || true && echo '--- checking src/app subfolders ---' && ls -la src/app || true && echo '--- check dist/task1 exists ---' && ls -la dist/task1 || true
+pwd && whoami && ls -la

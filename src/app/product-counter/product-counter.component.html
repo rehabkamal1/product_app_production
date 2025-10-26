@@ -1,0 +1,110 @@
+<!-- <div class="cart-container">
+  <h2>🛒 Cart</h2>
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems; let i = index">
+        <td class="product-info">
+          <img *ngIf="item.images?.length" [src]="item.images[0]" alt="{{ item.title }}" class="product-image" />
+          <div>
+            <strong>{{ item.title }}</strong>
+            <p>Product Code: {{ item.code || 'N/A' }}</p>
+          </div>
+        </td>
+        <td class="quantity-control">
+          <button class="btn-increase" (click)="increaseQuantity(item)">+</button>
+          <input type="text" [value]="item.quantity" readonly />
+          <button class="btn-decrease" (click)="decreaseQuantity(item)">-</button>
+        </td>
+        <td>
+          <button class="btn-remove" (click)="removeItem(i)">✖</button>
+        </td>
+        <td>£{{ item.price * item.quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="total-box">
+    <strong>Total: £{{ getTotalPrice().toFixed(2) }}</strong>
+  </div>
+</div>  -->
+
+<div class="modern-cart-container">
+  <h2 class="cart-header">🛒 Your Shopping Cart</h2>
+  
+  <div class="cart-table-wrapper">
+    <table class="modern-cart-table">
+      <thead>
+        <tr class="table-header-row">
+          <th class="product-col">Product</th>
+          <th class="quantity-col">Quantity</th>
+          <th class="action-col">Action</th>
+          <th class="price-col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems; let i = index" class="cart-item-row">
+          <td class="product-info-cell">
+            <div class="product-info-wrapper">
+              <img *ngIf="item.images?.length" 
+                   [src]="item.images[0]" 
+                   alt="{{ item.title }}" 
+                   class="product-thumbnail" />
+              <div class="product-details">
+                <h3 class="product-title">{{ item.title }}</h3>
+                <p class="product-code">SKU: {{ item.code || 'N/A' }}</p>
+              </div>
+            </div>
+          </td>
+          
+          <td class="quantity-cell">
+            <div class="quantity-control-wrapper">
+              <button class="quantity-btn decrease-btn" 
+                      (click)="decreaseQuantity(item)"
+                      aria-label="Decrease quantity">
+                -
+              </button>
+              <span class="quantity-value">{{ item.quantity }}</span>
+              <button class="quantity-btn increase-btn" 
+                      (click)="increaseQuantity(item)"
+                      aria-label="Increase quantity">
+                +
+              </button>
+            </div>
+          </td>
+          
+          <td class="action-cell">
+            <button class="remove-item-btn" 
+                    (click)="removeItem(i)"
+                    aria-label="Remove item">
+              ✖ Remove
+            </button>
+          </td>
+          
+          <td class="price-cell">
+            £{{ (item.price * item.quantity).toFixed(2) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="cart-summary">
+    <div class="total-section">
+      <span class="total-label">Order Total:</span>
+      <span class="total-amount">£{{ getTotalPrice().toFixed(2) }}</span>
+    </div>
+    
+    <!-- <div class="cart-actions">
+      <button class="continue-shopping-btn">← Continue Shopping</button>
+      <button class="checkout-btn">Proceed to Checkout →</button>
+    </div> -->
+  </div>
+</div>

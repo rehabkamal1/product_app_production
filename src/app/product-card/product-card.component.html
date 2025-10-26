@@ -1,0 +1,27 @@
+ <div class="card h-100">
+    <span class="badge" [ngClass]="productItem.stock > 50 ? 'badge-success' : 'badge-danger'">
+        {{ productItem.stock > 50 ? 'In stock ' : 'Out of stock' }}
+    </span>
+
+    <img [src]="productItem.images[0]" class="card-img-top" [alt]="productItem.title" />
+
+    <div class="card-body">
+        <div class="card-title-container">
+            <a [routerLink]="['/product-details', productItem.id]" class="card-title">
+                {{ productItem.title }}
+            </a>
+            <span class="price">${{ productItem.price }}</span>
+        </div>
+
+        <p class="card-text">{{ productItem.description }}</p>
+
+        <p class="rating">⭐ {{ productItem.rating }}</p>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn btn-danger mx-5 " (click)="addToCart()">Add to cart</button>
+        <button class="btn btn-danger " (click)="redirectToDetails()">Details</button>
+
+    </div>
+</div> 
+
