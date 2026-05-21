@@ -1,5 +1,6 @@
 cd "/media/dell/Data/iti/Angular/Day5 (2)/Day5/product_app"
 npm install
+npm start
 npm run build -- --configuration production
 
 
