@@ -9,9 +9,9 @@ import { ProductCounterComponent } from './product-counter/product-counter.compo
 import { CommonModule } from '@angular/common';
 export const routes: Routes = [
 {
-    path:'',
-component:ProductListComponent,
-title:'product list page'
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
 },
 
    { path:'login',
